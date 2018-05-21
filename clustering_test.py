@@ -71,7 +71,7 @@ def print_results(data,results_file_name):
 	"""
 	
 	with open(results_file_name,'w') as outputfile:
-		outputfile.write('station_name station_cluster')
+		outputfile.write('station_name station_cluster'+'\n')
 		for entry in data:
 
 			outputfile.write(str(entry['name']) +' '+str(entry['cluster'])+'\n')
