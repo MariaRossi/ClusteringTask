@@ -74,7 +74,7 @@ def print_results(data,results_file_name):
 		
 		for entry in data:
 
-			outputfile.write(str(entry['name']) +' '+str(entry['class'])+'\n')
+			outputfile.write(str(entry['name']) +' '+str(entry['cluster'])+'\n')
 
 def clustering_analysis(data):
 
@@ -103,7 +103,7 @@ def clustering_analysis(data):
 		    y_pred = algorithm.labels_
 
 		    # get results in json format
-		    data=add_attribute_to_list_of_objects(data,y_pred)
+		    data=add_attribute_to_entry(data,y_pred)
 		    print_results(data,'ClusteringResults_'+str(name.replace(' ','_'))+'_n_clusters='+str(n_clusters)+'.txt') 
 		    
 		    # get results in a scatter plot format
