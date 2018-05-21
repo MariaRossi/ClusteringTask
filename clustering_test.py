@@ -101,6 +101,10 @@ def clustering_analysis(data):
     
 		    algorithm.fit(geo_coordinates)
 		    y_pred = algorithm.labels_
+
+		    # get results in json format
+		    data=add_attribute_to_list_of_objects(data,y_pred)
+		    print_results(data,'ClusteringResults_'+str(name.replace(' ','_'))+'_n_clusters='+str(n_clusters)+'.txt') 
 		    
 		    # get results in a scatter plot format
 		    index+=1
