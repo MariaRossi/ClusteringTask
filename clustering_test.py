@@ -37,7 +37,35 @@ def get_location_data(data):
 
     return geo_coordinates
 
+def clustering_analysis(data):
 
+	geo_coordinates=get_location_data(data)
+	index=0
+    clustering_analysis_figure=plt.figure(figsize=(14, 14))
+
+    for n_clusters in (2,3,4):
+    	spectral = cluster.SpectralClustering(n_clusters=n_clusters,affinity="nearest_neighbors")
+    	agglomerative = cluster.AgglomerativeClustering(n_clusters=n_clusters)
+
+    	clustering_algorithms=( ('Spectral Clustering', spectral),('Agglomerative Clustering', agglomerative) )
+
+    	for name,algorithm in clustering_algorithms:
+    
+		    algorithm.fit(geo_coordinates)
+		    y_pred = algorithm.labels_
+		    
+		    # get results in a scatter plot format
+		    index+=1
+		    plt.subplot(3,2,index)
+		    plt.scatter([x for x,y in geo_coordinates], [y for x,y in geo_coordinates], c=y_pred)
+		    plt.title(str(name)+', '+'n_clusters='+str(n_clusters)+'\n')
+		    plt.xlabel('Latitude')
+		    plt.ylabel('Longitude')
+
+
+    plt.subplots_adjust(hspace=0.5)
+    plt.savefig('clustering_analysis_figure.png', format="png")
+    plt.close()
 
 if __name__ == "__main__":
 
@@ -65,4 +93,10 @@ if __name__ == "__main__":
     	os.makedirs('Clustering_Results')
 	
 	os.chdir('Clustering_Results')
+
+	# perform clustering
+	clustering_analysis(data)
+	
+
+
 
