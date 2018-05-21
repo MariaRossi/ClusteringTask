@@ -57,6 +57,25 @@ def add_attribute_to_entry(data,attribute_list):
 
 	return data
 
+def print_results(data,results_file_name):
+	
+	"""
+
+	Printing of results in .txt files.
+
+	Takes as input the data (as a list of dictionaries) and the name of the file to be created and
+	prints the results of the clustering method. The output file contains two columns separated by a space.
+	First column contains the name of the station and second column indicates the cluster that the station
+	belongs to according to the clustering method being used.
+
+	"""
+	
+	with open(results_file_name,'w') as outputfile:
+		
+		for entry in data:
+
+			outputfile.write(str(entry['name']) +' '+str(entry['class'])+'\n')
+
 def clustering_analysis(data):
 
 	"""
