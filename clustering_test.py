@@ -39,17 +39,26 @@ def get_location_data(data):
 
 def clustering_analysis(data):
 
+	"""
+	Clustering of unlabeled data using Spectral and Agglomerative Clustering.
+
+	Takes as input the entry data and provides scatter plots that depict the clustering
+	results of the Spectral and Agglomerative Clustering methods. Here the data are grouped
+	in 2,3 and 4 clusters.
+	"""
+
 	geo_coordinates=get_location_data(data)
 	index=0
-    clustering_analysis_figure=plt.figure(figsize=(14, 14))
+	clustering_analysis_figure=plt.figure(figsize=(14, 14))
 
-    for n_clusters in (2,3,4):
-    	spectral = cluster.SpectralClustering(n_clusters=n_clusters,affinity="nearest_neighbors")
-    	agglomerative = cluster.AgglomerativeClustering(n_clusters=n_clusters)
+	for n_clusters in (2,3,4):
 
-    	clustering_algorithms=( ('Spectral Clustering', spectral),('Agglomerative Clustering', agglomerative) )
+		spectral = cluster.SpectralClustering(n_clusters=n_clusters,affinity="nearest_neighbors")
+		agglomerative = cluster.AgglomerativeClustering(n_clusters=n_clusters)
 
-    	for name,algorithm in clustering_algorithms:
+		clustering_algorithms=( ('Spectral Clustering', spectral),('Agglomerative Clustering', agglomerative) )
+
+		for name,algorithm in clustering_algorithms:
     
 		    algorithm.fit(geo_coordinates)
 		    y_pred = algorithm.labels_
@@ -61,11 +70,10 @@ def clustering_analysis(data):
 		    plt.title(str(name)+', '+'n_clusters='+str(n_clusters)+'\n')
 		    plt.xlabel('Latitude')
 		    plt.ylabel('Longitude')
-
-
-    plt.subplots_adjust(hspace=0.5)
-    plt.savefig('clustering_analysis_figure.png', format="png")
-    plt.close()
+	
+	plt.subplots_adjust(hspace=0.5)
+	plt.savefig('clustering_analysis_figure.png', format="png")
+	plt.close()
 
 if __name__ == "__main__":
 
@@ -86,17 +94,17 @@ if __name__ == "__main__":
     plt.savefig('Brisbane_CityBike_visualization.png', format="png")
     plt.close()
 
-    # create directory for clsutering results
+    # create directory for clustering results
 
     if not os.path.exists('Clustering_Results'):
 
     	os.makedirs('Clustering_Results')
-	
-	os.chdir('Clustering_Results')
+
+    os.chdir('Clustering_Results')
 
 	# perform clustering
-	clustering_analysis(data)
-	
+    clustering_analysis(data)
+
 
 
 
