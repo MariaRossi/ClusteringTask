@@ -28,16 +28,15 @@ def get_location_data(data):
 	Takes as input a list containing all entries and returns a list of (latitude,longitude) pairs.
 
 	"""
+    geo_coordinates=[]
+    for entry in data:
 
-	geo_coordinates=[]
-	for entry in data:
+    	latitude=entry['latitude']
+    	longitude=entry['longitude']
+    	geo_coordinates.append([latitude,longitude])
 
-		latitude=entry['latitude']
-		longitude=entry['longitude']
-		geo_coordinates.append([latitude,longitude])
+    return geo_coordinates
 
-
-	return geo_coordinates
 
 if __name__ == "__main__":
 
@@ -45,3 +44,16 @@ if __name__ == "__main__":
         print ('Wrong arguments')
     else:
         data_file= sys.argv[1]
+
+    # read data
+    data=read_json_data(data_file)
+    geo_coordinates=get_location_data(data)
+
+	# plot data points based on the location of each entry
+    plt.scatter([x for x,y in geo_coordinates],[y for x,y in geo_coordinates])
+    plt.xlabel('Latitude')
+    plt.ylabel('Longitude')
+    plt.title('Brisbane_CityBike')
+    plt.savefig('Brisbane_CityBike_visualization.png', format="png")
+    plt.close()
+
