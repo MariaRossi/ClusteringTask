@@ -10,7 +10,8 @@ def read_json_data(input_file):
 	"""
 	Reads data from json file.
 
-	Takes as input the json file and returns a Python list of all the entries.
+	Takes as input the json file and returns a Python list of dictionaries.
+	Each dictionary describes an entry.
 
 	"""
 
@@ -36,6 +37,25 @@ def get_location_data(data):
     	geo_coordinates.append([latitude,longitude])
 
     return geo_coordinates
+
+def add_attribute_to_entry(data,attribute_list):
+
+	"""
+	Addition of the cluster attribute to each entry.
+
+	Takes as input the data (as a list of dictionaries) and a list containing the values of the new attribute to be added.
+	Adds a new attribute 'cluster' to each entry which is the result of a clustering method. Returns all entries as a list
+	of dictionaries.
+
+	"""
+
+	attribute_index=0
+	for entry in data:
+
+		entry['cluster']=attribute_list[attribute_index]
+		attribute_index+=1
+
+	return data
 
 def clustering_analysis(data):
 
