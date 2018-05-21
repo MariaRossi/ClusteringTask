@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 def read_json_data(input_file):
 
 	"""
-	Read data from json file.
+	Reads data from json file.
 
 	Takes as input the json file and returns a Python list of all the entries.
 
@@ -20,6 +20,24 @@ def read_json_data(input_file):
 	
 	return data
 
+def get_location_data(data):
+
+    """
+	Gets the location data from all the entries.
+
+	Takes as input a list containing all entries and returns a list of (latitude,longitude) pairs.
+
+	"""
+
+	geo_coordinates=[]
+	for entry in data:
+
+		latitude=entry['latitude']
+		longitude=entry['longitude']
+		geo_coordinates.append([latitude,longitude])
+
+
+	return geo_coordinates
 
 if __name__ == "__main__":
 
