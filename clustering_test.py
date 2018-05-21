@@ -38,6 +38,7 @@ def get_location_data(data):
     return geo_coordinates
 
 
+
 if __name__ == "__main__":
 
     if not len(sys.argv) == 2:
@@ -56,4 +57,12 @@ if __name__ == "__main__":
     plt.title('Brisbane_CityBike')
     plt.savefig('Brisbane_CityBike_visualization.png', format="png")
     plt.close()
+
+    # create directory for clsutering results
+
+    if not os.path.exists('Clustering_Results'):
+
+    	os.makedirs('Clustering_Results')
+	
+	os.chdir('Clustering_Results')
 
