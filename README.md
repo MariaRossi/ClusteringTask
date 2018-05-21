@@ -19,7 +19,7 @@ The results are shown in 2 different formats:
 - Plot showing the clustering results for the 2 different methods and for 3 different numbes of clusters (6 plots in total).
 The data points sharing a color are the data points belonging to the same cluster. (see Clustering_Results/clustering_analysis_figure.png)
 - Txt files containing the results in two columns separated by a space: station_name station_cluster
-The station cluster is a number ranging from 0 to N-1 where N is the nmuber of clusters being used in the method. (see Clustering_Results/ClusteringResults_*_n_clusters=*.txt)
+The station cluster is a number ranging from 0 to N-1 where N is the nmuber of clusters being used in the method. (see Clustering_Results/ClusteringResults_\*_n_clusters=\*.txt)
 
 For the clustering problem, the most common method to choose the number of clusters by human input and insight.
 Here the data were clustered in 2,3,4 clusters although the best method is to choose a purpose for which we want to divide our data in clusters and then think which is the number of clusters that serves said purpose.
@@ -27,13 +27,13 @@ Here the data were clustered in 2,3,4 clusters although the best method is to ch
 To run the script type: python clustering_test.py /path/to/json/file
 
 ## Requirements
-a. [Scikit-learn](http://scikit-learn.org/) Scikit-learn is an open source, BSD-licensed library providing tools for
+a. [Scikit-learn](http://scikit-learn.org/): Scikit-learn is an open source, BSD-licensed library providing tools for
 data mining and data analysis.
-b. [matplotlib](https://matplotlib.org/) Matplotlib is a plotting library for Python. 
+b. [matplotlib](https://matplotlib.org/): Matplotlib is a plotting library for Python. 
 
 
 ## References
 
-1. [Spectral Clustering](https://people.eecs.berkeley.edu/~malik/papers/SM-ncut.pdf)Shi, J., & Malik, J. (2000). Normalized cuts and image segmentation. IEEE Transactions on pattern analysis and machine intelligence, 22(8), 888-905.
+1. [Spectral Clustering](https://people.eecs.berkeley.edu/~malik/papers/SM-ncut.pdf): Shi, J., & Malik, J. (2000). Normalized cuts and image segmentation. IEEE Transactions on pattern analysis and machine intelligence, 22(8), 888-905.
 2. [Agglomerative Clustering](https://academic.oup.com/comjnl/article/16/1/30/434805): Sibson, R. (1973). SLINK: an optimally efficient algorithm for the single-link cluster method. The computer journal, 16(1), 30-34. 
-3. [CoreCluster](https://arxiv.org/abs/1607.02096) Giatsidis, C., Malliaros, F. D., Tziortziotis, N., Dhanjal, C., Kiagias, E., Thilikos, D. M., & Vazirgiannis, M. (2016). A k-core Decomposition Framework for Graph Clustering. arXiv preprint arXiv:1607.02096.
+3. [CoreCluster](https://arxiv.org/abs/1607.02096): Giatsidis, C., Malliaros, F. D., Tziortziotis, N., Dhanjal, C., Kiagias, E., Thilikos, D. M., & Vazirgiannis, M. (2016). A k-core Decomposition Framework for Graph Clustering. arXiv preprint arXiv:1607.02096.
