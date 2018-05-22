@@ -21,8 +21,7 @@ The data points sharing a color are the data points belonging to the same cluste
 - Txt files containing the results in two columns separated by a space: station_name station_cluster
 The station cluster is a number ranging from 0 to N-1 where N is the nmuber of clusters being used in the method. (see Clustering_Results/ClusteringResults_\*_n_clusters=\*.txt)
 
-For the clustering problem, the most common method to choose the number of clusters by human input and insight.
-Here the data were clustered in 2,3,4 clusters although the best method is to choose a purpose for which we want to divide our data in clusters and then think which is the number of clusters that serves said purpose.
+One common issue for clustering is how to choose the optimal number of clusters. There exist various methods for that purpose (e.g., elbow method). Specifically for Spectral Clustering the most stable clustering is given by the value (index of eigenvalue) that maximizes the difference between two consecutive eigenvalues. Nevertheless the most common method to choose the number of clusters is human input and insight. Here the data were clustered in 2,3,4 clusters although the best method is to choose a purpose for which we want to divide our data in clusters and then think which is the number of clusters that serves said purpose.
 
 To run the script type: python clustering_test.py /path/to/json/file
 
